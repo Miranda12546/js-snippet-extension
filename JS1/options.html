@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ACU JS Snippets – Manage</title>
+<link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <header>
+    <div id="banner" hidden></div>
+    <div class="bar">
+      <h1>Manage Snippets <small>v1.6.0</small></h1>
+      <nav class="tabs">
+        <button id="tabAll" data-tab="all" class="active">All</button>
+        <button id="tabTrash" data-tab="trash">Trash</button>
+        <button id="newSnippet">New</button>
+        <button id="exportAll">Export All</button>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <form id="form" hidden>
+      <input id="title" placeholder="Title" required>
+      <input id="desc" placeholder="Description">
+      <textarea id="code" placeholder="Code…" rows="12" spellcheck="false" required></textarea>
+      <input id="tags" placeholder="Tags (comma separated, e.g. storyline,setup)">
+      <div class="row">
+        <button type="submit" id="saveBtn">Save snippet</button>
+        <button type="button" id="delete">Delete</button>
+        <button type="button" id="reset">Reset to defaults</button>
+      </div>
+    </form>
+
+    <section id="listView">
+      <ul id="snipList"></ul>
+    </section>
+
+    <section id="trashView" hidden>
+      <div class="trashBar">
+        <button id="emptyTrash">Empty Trash</button>
+      </div>
+      <ul id="trashList"></ul>
+    </section>
+  </main>
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{
+  "categories": [],
+  "snippets": [
+    {
+      "id": "loader",
+      "title": "Storyline \u2022 Load shared ACU library",
+      "desc": "Inject a remote JS file once (Slide 1/Master)",
+      "tags": [
+        "storyline",
+        "setup"
+      ],
+      "code": "(function(){\n  const LIB_URL = \"https://example.com/acu-story-utils.js?v=0.1\";\n  if (window.ACU) return;\n  const s = document.createElement(\"script\");\n  s.src = LIB_URL; s.async = true;\n  s.onload = () => console.log(\"ACU JS loaded\");\n  s.onerror = () => alert(\"Couldn\u2019t load ACU JS \u2013 check the URL.\");\n  document.head.appendChild(s);\n})();"
+    },
+    {
+      "id": "getset",
+      "title": "Storyline \u2022 Get/Set variables",
+      "desc": "Safe wrappers for GetPlayer",
+      "tags": [
+        "storyline",
+        "variables"
+      ],
+      "code": "(function(){\n  const p = (typeof GetPlayer==='function'? GetPlayer():null);\n  if(!p){ alert('No Storyline player found'); return; }\n  const score = p.GetVar('Score') || 0;\n  p.SetVar('Score', score + 10);\n})();"
+    },
+    {
+      "id": "pulse",
+      "title": "Storyline \u2022 Pulse object by Accessibility Name",
+      "desc": "Subtle scale animation loop",
+      "tags": [
+        "storyline",
+        "animation"
+      ],
+      "code": "(function(name='PulseMe', {duration=900, scale=1.08}={}){\n  const el = document.querySelector('[aria-label=\"'+name+'\"]');\n  if(!el){ alert('Object not found: '+name); return; }\n  el.style.transition = 'transform '+duration+'ms ease-in-out';\n  let up = true;\n  setInterval(()=>{ el.style.transform = up? 'scale('+scale+')':'scale(1)'; up=!up; }, duration);\n})('PulseMe',{duration:900, scale:1.08});"
+    },
+    {
+      "id": "openpdf",
+      "title": "Storyline \u2022 Open a PDF (same domain)",
+      "desc": "Opens a resource PDF in a new tab",
+      "tags": [
+        "storyline",
+        "files"
+      ],
+      "code": "window.open('resources/Checklist.pdf', '_blank', 'noopener');"
+    }
+  ]
+}

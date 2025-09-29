@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ACU JS Snippets</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="banner" hidden></div>
+  <header class="appbar">
+    <div class="brand">
+      <div class="logo">JS</div>
+      <div class="titles">
+        <h1>ACU JS Snippets</h1>
+        <p class="subtitle">Copy • Reuse • Manage <span class="ver">v1.6.0</span></p>
+      </div>
+    </div>
+    <div class="actions">
+      <button id="helpBtn" title="Quick tour">?</button>
+      <button id="addNew" title="Add new snippet">New</button>
+      <button id="openOptions" title="Manage snippets">Manage</button>
+    </div>
+  </header>
+
+  <section class="toolbar">
+    <input id="search" type="search" placeholder="Search by title, description or code…">
+    <div class="filters">
+      <label><input type="checkbox" id="filterFaves"> Favourites</label>
+    </div>
+  </section>
+
+  <ul id="list" class="cardlist" aria-live="polite"></ul>
+
+  <template id="itemTmpl">
+    <li class="item" tabindex="0">
+      <div class="row">
+        <div class="meta">
+          <h2 class="title"></h2>
+          <div class="tags"></div>
+          <p class="desc"></p>
+        </div>
+        <div class="buttons">
+          <button class="copy" title="Copy to clipboard">Copy</button>
+          <button class="fav" title="Add to favourites">♡</button>
+          <button class="edit" title="Edit this snippet">Edit</button>
+          <button class="expand" title="Show code">Show</button>
+        </div>
+      </div>
+      <pre class="code" hidden></pre>
+    </li>
+  </template>
+
+  <dialog id="help">
+    <h3>Quick tour</h3>
+    <ol>
+      <li>Use <b>Search</b> to find a snippet.</li>
+      <li>Click <b>Copy</b> to paste into Storyline.</li>
+      <li>Click the <b>heart</b> to favourite.</li>
+      <li>Use <b>Edit</b> to update a snippet (opens Manage pre-filled).</li>
+    </ol>
+    <button id="closeHelp">Close</button>
+  </dialog>
+
+  <script src="popup.js"></script>
+</body>
+</html>
